@@ -59,7 +59,7 @@ pipeline {
         stage('Run Demo') {
             steps {
                 echo 'Running the packaged application...'
-                sh 'java -jar target\\bank-demo.jar'
+                sh 'java -jar target/bank-demo.jar'
             }
         }
     }
