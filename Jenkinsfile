@@ -25,14 +25,14 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Compiling the project...'
-                bat 'mvn -B clean compile'
+                sh 'mvn -B clean compile'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Running unit tests...'
-                bat 'mvn -B test'
+                sh 'mvn -B test'
             }
             post {
                 always {
@@ -45,7 +45,7 @@ pipeline {
         stage('Package') {
             steps {
                 echo 'Packaging the jar...'
-                bat 'mvn -B package -DskipTests'
+                sh 'mvn -B package -DskipTests'
             }
         }
 
@@ -59,7 +59,7 @@ pipeline {
         stage('Run Demo') {
             steps {
                 echo 'Running the packaged application...'
-                bat 'java -jar target\\bank-demo.jar'
+                sh 'java -jar target\\bank-demo.jar'
             }
         }
     }
